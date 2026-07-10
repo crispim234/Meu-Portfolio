@@ -86,18 +86,55 @@
     <div class="status-badge"><span class="status-dot"></span>Disponível para freelas e oportunidades</div>
   </div>
   <div class="hero-right">
-    <div class="photo-frame">
-      <div class="photo-inner" id="photoInner" onclick="document.getElementById('photoInput').click()">
-        <div id="photoPlaceholder" class="photo-placeholder">
-          <div class="photo-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+    <div class="photo-frame" id="photoFrame">
+      <div class="card-flip" id="cardFlip">
+        <div class="card-face card-front">
+          <div class="photo-inner" id="photoInner">
+            <div id="photoPlaceholder" class="photo-placeholder hidden">
+              <div class="photo-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              </div>
+              <p class="photo-label">Adicionar foto</p>
+              <p class="photo-sub">clique para fazer upload</p>
+            </div>
+            <img id="photoImg" src="profile.jpeg" alt="Alexandre Araújo" class="loaded" />
+            <input type="file" id="photoInput" class="photo-input" accept="image/*" />
+            <span class="photo-badge">alexandre araújo</span>
+            <button type="button" class="photo-edit-btn" id="photoEditBtn" title="Trocar foto">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/></svg>
+            </button>
+            <span class="card-flip-hint">virar carta ↻</span>
           </div>
-          <p class="photo-label">Adicionar foto</p>
-          <p class="photo-sub">clique para fazer upload</p>
         </div>
-        <img id="photoImg" alt="Alexandre Araújo" />
-        <input type="file" id="photoInput" class="photo-input" accept="image/*" />
-        <span class="photo-badge">alexandre araújo</span>
+        <div class="card-face card-back">
+          <div class="card-back-inner">
+            <div class="card-back-header">
+              <span class="card-back-name">Alexandre Araújo</span>
+              <span class="card-back-hp">LV 100</span>
+            </div>
+            <div class="card-back-type">Tipo: Frontend Developer</div>
+            <div class="card-back-stats">
+              <div class="card-stat">
+                <div class="card-stat-head"><span class="card-stat-icon">⚡</span><span class="card-stat-name">Frontend</span><span class="card-stat-val">90</span></div>
+                <div class="card-stat-bar"><span style="width:90%"></span></div>
+              </div>
+              <div class="card-stat">
+                <div class="card-stat-head"><span class="card-stat-icon">🛠️</span><span class="card-stat-name">Ferramentas</span><span class="card-stat-val">80</span></div>
+                <div class="card-stat-bar"><span style="width:80%"></span></div>
+              </div>
+              <div class="card-stat">
+                <div class="card-stat-head"><span class="card-stat-icon">🧠</span><span class="card-stat-name">Boas práticas</span><span class="card-stat-val">85</span></div>
+                <div class="card-stat-bar"><span style="width:85%"></span></div>
+              </div>
+              <div class="card-stat">
+                <div class="card-stat-head"><span class="card-stat-icon">🎨</span><span class="card-stat-name">UI / Design</span><span class="card-stat-val">75</span></div>
+                <div class="card-stat-bar"><span style="width:75%"></span></div>
+              </div>
+            </div>
+            <p class="card-back-flavor">"Código limpo não é questão de estilo — é questão de profissionalismo."</p>
+            <div class="card-back-footer"><span>Nº 001</span><span>ADS · Teresina</span></div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

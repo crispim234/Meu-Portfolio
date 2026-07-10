@@ -84,6 +84,41 @@
     r.readAsDataURL(f);
   });
 
+  const photoEditBtn = document.getElementById('photoEditBtn');
+  if (photoEditBtn) {
+    photoEditBtn.addEventListener('click', e => {
+      e.stopPropagation();
+      document.getElementById('photoInput').click();
+    });
+  }
+
+  /* CARD FLIP — vira e mostra os atributos */
+  const cardFlip = document.getElementById('cardFlip');
+  const photoFrame = document.getElementById('photoFrame');
+  if (cardFlip && photoFrame) {
+    photoFrame.addEventListener('click', () => {
+      cardFlip.classList.toggle('is-flipped');
+    });
+  }
+
+  /* PHOTO CARD TILT */
+  const photoInner = document.getElementById('photoInner');
+  if (photoInner) {
+    photoInner.addEventListener('mousemove', e => {
+      const rect = photoInner.getBoundingClientRect();
+      const px = (e.clientX - rect.left) / rect.width;
+      const py = (e.clientY - rect.top) / rect.height;
+      const rotateY = (px - 0.5) * 18;
+      const rotateX = (0.5 - py) * 18;
+      photoInner.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.03)`;
+      photoInner.style.setProperty('--mx', `${px * 100}%`);
+      photoInner.style.setProperty('--my', `${py * 100}%`);
+    });
+    photoInner.addEventListener('mouseleave', () => {
+      photoInner.style.transform = 'rotateX(0deg) rotateY(0deg) scale(1)';
+    });
+  }
+
   /* ════════════════════════════════
      GAME TAB SWITCHER
   ════════════════════════════════ */
