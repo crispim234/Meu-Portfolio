@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Alexandre Araújo — Frontend Developer</title>
+<meta name="description" content="Portfólio de Alexandre Araújo Rodrigues — Desenvolvedor Frontend (React · TypeScript · Vite) em Teresina, PI. Projetos, habilidades e contato." />
+<meta name="author" content="Alexandre Araújo Rodrigues" />
+<meta property="og:title" content="Alexandre Araújo — Frontend Developer" />
+<meta property="og:description" content="React · TypeScript · Vite. Código limpo e interfaces que conversam." />
+<meta property="og:type" content="website" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%2306080f'/><text x='50' y='68' font-size='52' text-anchor='middle' fill='%233b82f6' font-family='monospace'>A</text></svg>" />
+<!-- GOOGLE ANALYTICS (opcional): crie uma conta em analytics.google.com,
+     pegue seu ID (formato G-XXXXXXXXXX), troque abaixo e descomente:
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<a href="#projects" class="skip-link">Pular para o conteúdo</a>
+<div id="preloader"><div id="bootText"></div></div>
+<div id="scrollProgress"></div>
+<canvas id="matrixCanvas"></canvas>
+<div class="toast-wrap" id="toastWrap"></div>
+<button id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Voltar ao topo">↑</button>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="ring"></div>
+
+<div class="content">
+
+<!-- NAV -->
+<nav>
+  <span class="nav-logo">alexandre<span>.</span>dev</span>
+  <ul class="nav-center">
+    <li><a href="#hero" class="active">início</a></li>
+    <li><a href="#projects">projetos</a></li>
+    <li><a href="#lab">lab</a></li>
+    <li><a href="#music">música</a></li>
+    <li><a href="#games">games</a></li>
+    <li><a href="#terminal">terminal</a></li>
+    <li><a href="#notes">notas</a></li>
+    <li><a href="#about">sobre</a></li>
+    <li><a href="#contact">contato</a></li>
+  </ul>
+  <div class="nav-right">
+    <button class="theme-btn" onclick="toggleTheme()">
+      <span id="themeIcon">☀️</span>
+      <span id="themeLabel">Claro</span>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-left">
+    <p class="hero-eyebrow">Desenvolvedor Frontend · ADS</p>
+    <h1 class="hero-title">Código limpo,<br><em>interfaces</em><br>que conversam.</h1>
+    <p class="hero-typed">&gt; <span id="typedText"></span><span class="typed-cursor">▊</span></p>
+    <p class="hero-desc">Olá, sou Alexandre Araújo. Estudo ADS em Teresina e crio experiências web com React, TypeScript e boas práticas — desde o primeiro commit até o deploy.</p>
+    <div class="hero-actions">
+      <a href="#projects" class="btn-primary">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        Ver projetos
+      </a>
+      <a href="https://github.com/crispim234" target="_blank" class="btn-ghost">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+        GitHub
+      </a>
+      <a href="mailto:alexandrearaujorodrigues7@gmail.com" class="btn-ghost">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+        E-mail
+      </a>
+    </div>
+    <div class="status-badge"><span class="status-dot"></span>Disponível para freelas e oportunidades</div>
+  </div>
+  <div class="hero-right">
+    <div class="photo-frame">
+      <div class="photo-inner" id="photoInner" onclick="document.getElementById('photoInput').click()">
+        <div id="photoPlaceholder" class="photo-placeholder">
+          <div class="photo-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          </div>
+          <p class="photo-label">Adicionar foto</p>
+          <p class="photo-sub">clique para fazer upload</p>
+        </div>
+        <img id="photoImg" alt="Alexandre Araújo" />
+        <input type="file" id="photoInput" class="photo-input" accept="image/*" />
+        <span class="photo-badge">alexandre araújo</span>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-hint">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m7 10 5 5 5-5"/></svg>
+    scroll
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="sec-header fade-up"><span class="sec-num">01</span><h2 class="sec-title">Projetos</h2><div class="sec-line"></div></div>
+  <div class="proj-list">
+
+    <div class="proj-item fade-up">
+      <span class="proj-num">01</span>
+      <div>
+        <p class="proj-name">App React + TypeScript + Vite</p>
+        <p class="proj-desc">SPA acadêmica montada com tooling moderno de mercado — React com hooks, TypeScript e Vite, com ESLint garantindo consistência de código.</p>
+        <div class="proj-tags"><span class="proj-tag">React</span><span class="proj-tag">TypeScript</span><span class="proj-tag">Vite</span><span class="proj-tag">ESLint</span></div>
+        <details class="case-details">
+          <summary>Ver case study</summary>
+          <div class="case-body">
+            <h4>O problema</h4>
+            Construir uma aplicação React do zero com configuração profissional, indo além do básico exigido em sala de aula.
+            <h4>Decisões técnicas</h4>
+            Escolhi <strong>Vite</strong> no lugar do CRA pela velocidade de build e hot reload quase instantâneo. TypeScript entrou para pegar erros em tempo de desenvolvimento, e ESLint para manter padrão de código do início ao fim.
+            <h4>O que aprendi</h4>
+            Tipagem de props e estado em componentes React, organização de pastas escalável e a diferença real que um bundler moderno faz no dia a dia.
+          </div>
+        </details>
+        <div class="proj-actions">
+          <a class="proj-link" href="https://github.com/crispim234/Trabalho-igor" target="_blank">Ver no GitHub ↗</a>
+        </div>
+      </div>
+      <span class="proj-arrow">⚛</span>
+    </div>
+
+    <div class="proj-item fade-up">
+      <span class="proj-num">02</span>
+      <div>
+        <p class="proj-name">Site React App + TypeScript</p>
+        <p class="proj-desc">Aplicação web com Create React App e TypeScript — estrutura escalável com pipeline de build completo para produção.</p>
+        <div class="proj-tags"><span class="proj-tag">TypeScript</span><span class="proj-tag">React</span><span class="proj-tag">CSS</span><span class="proj-tag">HTML5</span></div>
+        <details class="case-details">
+          <summary>Ver case study</summary>
+          <div class="case-body">
+            <h4>O problema</h4>
+            Desenvolver um site em React seguindo a estrutura clássica do ecossistema, com separação clara entre código-fonte e assets públicos.
+            <h4>Decisões técnicas</h4>
+            Usei <strong>Create React App</strong> com template TypeScript, aproveitando o build otimizado pronto para deploy. A estrutura src/public me ensinou como o React organiza o ciclo de build.
+            <h4>O que aprendi</h4>
+            Comparando com o projeto em Vite, entendi na prática as diferenças entre bundlers — tempo de build, hot reload e configuração. Esse tipo de comparação direta vale mais que qualquer tutorial.
+          </div>
+        </details>
+        <div class="proj-actions">
+          <a class="proj-link" href="https://github.com/crispim234/Projeto-de-site-do-professor-Igor-3" target="_blank">Ver no GitHub ↗</a>
+        </div>
+      </div>
+      <span class="proj-arrow">⚛</span>
+    </div>
+
+    <div class="proj-item fade-up">
+      <span class="proj-num">03</span>
+      <div>
+        <p class="proj-name">Sistema CRUD com PHP</p>
+        <p class="proj-desc">Aplicação fullstack com o ciclo completo de dados — criar, ler, atualizar e deletar. Backend em PHP, frontend em HTML, CSS e JavaScript puro.</p>
+        <div class="proj-tags"><span class="proj-tag">PHP</span><span class="proj-tag">JavaScript</span><span class="proj-tag">CSS</span><span class="proj-tag">HTML5</span></div>
+        <details class="case-details">
+          <summary>Ver case study</summary>
+          <div class="case-body">
+            <h4>O problema</h4>
+            Implementar um sistema completo de gerenciamento de dados, cobrindo todo o fluxo entre interface, servidor e persistência.
+            <h4>Decisões técnicas</h4>
+            Backend em <strong>PHP</strong> processando as operações, com frontend em JavaScript puro — sem frameworks — para dominar os fundamentos antes das abstrações.
+            <h4>O que aprendi</h4>
+            Como frontend e backend conversam de verdade: requisições, validação nos dois lados e o ciclo de vida de um dado da tela até o armazenamento. Essa visão fullstack me ajuda até hoje escrevendo frontend.
+          </div>
+        </details>
+        <div class="proj-actions">
+          <a class="proj-link" href="https://github.com/crispim234/Projeto-do-Professor-Vincius-" target="_blank">Ver no GitHub ↗</a>
+        </div>
+      </div>
+      <span class="proj-arrow">🐘</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- LAB -->
+<section id="lab">
+  <div class="sec-header fade-up"><span class="sec-num">02</span><h2 class="sec-title">Lab ao vivo</h2><div class="sec-line"></div></div>
+  <p class="games-intro fade-up">Nada de prints estáticos — estas demos consomem <strong>APIs reais agora</strong>, direto nesta página. O código roda no seu navegador enquanto você lê isso.</p>
+
+  <div class="lab-grid fade-up">
+    <div class="lab-card">
+      <div class="lab-card-header">
+        <span class="lab-card-label">GitHub API — meus repositórios</span>
+        <span class="lab-live">ao vivo</span>
+      </div>
+      <div class="gh-grid" id="ghRepos">
+        <div class="gh-loading">carregando repositórios via api.github.com...</div>
+      </div>
+      <p class="lab-note">Fetch em tempo real de api.github.com/users/crispim234/repos — os cards acima refletem meu GitHub neste exato momento.</p>
+    </div>
+
+    <div class="lab-card">
+      <div class="lab-card-header">
+        <span class="lab-card-label">ViaCEP — busca de endereço</span>
+        <span class="lab-live">ao vivo</span>
+      </div>
+      <div class="cep-box">
+        <div class="cep-row">
+          <input id="cepInput" placeholder="Digite um CEP (ex: 64000-100)" maxlength="9" aria-label="CEP para busca" />
+          <button class="cep-btn" onclick="buscarCep()">Buscar</button>
+        </div>
+        <div id="cepResult">Digite um CEP brasileiro e veja a API responder.</div>
+      </div>
+      <p class="lab-note">Consulta à API pública ViaCEP com tratamento de erros e validação de entrada.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="sec-header fade-up"><span class="sec-num">03</span><h2 class="sec-title">Skills</h2><div class="sec-line"></div></div>
+  <div class="skills-wrapper">
+    <div class="fade-up">
+      <div class="skill-block">
+        <div class="skill-block-header"><span class="skill-block-label">Frontend</span><span class="skill-block-count">5 tecnologias</span></div>
+        <div class="skill-pills"><span class="skill-pill"><span class="dot"></span>HTML5</span><span class="skill-pill"><span class="dot"></span>CSS3</span><span class="skill-pill"><span class="dot"></span>JavaScript ES6+</span><span class="skill-pill"><span class="dot"></span>React</span><span class="skill-pill"><span class="dot"></span>TypeScript</span></div>
+      </div>
+      <div class="skill-block">
+        <div class="skill-block-header"><span class="skill-block-label">Ferramentas</span><span class="skill-block-count">7 ferramentas</span></div>
+        <div class="skill-pills"><span class="skill-pill"><span class="dot"></span>Git & GitHub</span><span class="skill-pill"><span class="dot"></span>Vite</span><span class="skill-pill"><span class="dot"></span>Linux</span><span class="skill-pill"><span class="dot"></span>Python</span><span class="skill-pill"><span class="dot"></span>Adobe PS</span><span class="skill-pill"><span class="dot"></span>Adobe AI</span><span class="skill-pill"><span class="dot"></span>VSCode</span></div>
+      </div>
+      <div class="skill-block">
+        <div class="skill-block-header"><span class="skill-block-label">Práticas</span><span class="skill-block-count">5 práticas</span></div>
+        <div class="skill-pills"><span class="skill-pill"><span class="dot"></span>Clean Code</span><span class="skill-pill"><span class="dot"></span>Mobile-first</span><span class="skill-pill"><span class="dot"></span>Componentização</span><span class="skill-pill"><span class="dot"></span>REST APIs</span><span class="skill-pill"><span class="dot"></span>CRUD</span></div>
+      </div>
+    </div>
+    <div class="fade-up">
+      <div class="skills-quote"><p>"Código limpo não é questão de estilo — é questão de profissionalismo."</p><cite>— Robert C. Martin, Clean Code</cite></div>
+      <div class="learning-block">
+        <p class="learning-title">Aprendendo agora</p>
+        <div class="learning-items">
+          <div class="learning-item"><span class="learning-item-name">Jest & Testing</span><div class="learning-bar"><div class="learning-fill" data-w="40"></div></div></div>
+          <div class="learning-item"><span class="learning-item-name">Node.js</span><div class="learning-bar"><div class="learning-fill" data-w="30"></div></div></div>
+          <div class="learning-item"><span class="learning-item-name">Figma Avançado</span><div class="learning-bar"><div class="learning-fill" data-w="55"></div></div></div>
+          <div class="learning-item"><span class="learning-item-name">Acessibilidade WCAG</span><div class="learning-bar"><div class="learning-fill" data-w="45"></div></div></div>
+        </div>
+      </div>
+      <div class="cert-block">
+        <p class="cert-title">Formação & Certificados</p>
+        <div class="cert-item"><span class="cert-name">Análise e Desenvolvimento de Sistemas</span><span class="cert-org">em curso</span></div>
+        <!-- Adicione seus certificados copiando a linha abaixo:
+        <div class="cert-item"><span class="cert-name">Nome do curso</span><span class="cert-org">Plataforma · Ano</span></div>
+        -->
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MUSIC -->
+<section id="music">
+  <div class="sec-header fade-up"><span class="sec-num">04</span><h2 class="sec-title">Trilha sonora</h2><div class="sec-line"></div></div>
+
+  <p class="music-intro fade-up">
+    Código bom precisa de uma boa trilha sonora. Enquanto você explora o portfólio, ouça o que toca no meu fone: <strong>Alice in Chains</strong> e <strong>Radiohead</strong> — bandas que moldaram meu gosto musical e minha forma de pensar em camadas.
+  </p>
+
+  <div class="band-tabs fade-up">
+    <button class="band-tab active" onclick="switchBand('aic')">Alice in Chains</button>
+    <button class="band-tab" onclick="switchBand('rh')">Radiohead</button>
+  </div>
+
+  <div class="players-wrap fade-up">
+
+    <!-- ALICE IN CHAINS -->
+    <div class="player-panel active" id="panel-aic">
+      <div class="player-grid">
+
+        <div class="player-card">
+          <div class="player-card-label">Dirt — Álbum completo</div>
+          <div class="player-cover" id="cover-aic-1" onclick="loadPlayer('cover-aic-1','frame-aic-1','https://open.spotify.com/embed/album/6bUJpbekaIlSPkO0TDLSF8?utm_source=generator&theme=0')">
+            <img class="player-cover-art" src="https://i.scdn.co/image/ab67616d0000b273e46f63b77b43e1c2d331aedb" alt="Dirt" onerror="this.style.display='none'" />
+            <p class="player-cover-title">Dirt</p>
+            <p class="player-cover-sub">Alice in Chains · 1992</p>
+            <button class="play-btn">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+              Abrir no Spotify
+            </button>
+          </div>
+          <iframe id="frame-aic-1" style="display:none;width:100%;border:none;" height="352" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+        </div>
+
+        <div class="player-card">
+          <div class="player-card-label">Unplugged — MTV 1996</div>
+          <div class="player-cover" id="cover-aic-2" onclick="loadPlayer('cover-aic-2','frame-aic-2','https://open.spotify.com/embed/album/6gIVBN8UeVJUbgbgEECoXS?utm_source=generator&theme=0')">
+            <img class="player-cover-art" src="https://i.scdn.co/image/ab67616d0000b2737e8e1e0d4e9f1e6f0a6b5e1a" alt="Unplugged" onerror="this.style.display='none'" />
+            <p class="player-cover-title">MTV Unplugged</p>
+            <p class="player-cover-sub">Alice in Chains · 1996</p>
+            <button class="play-btn">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+              Abrir no Spotify
+            </button>
+          </div>
+          <iframe id="frame-aic-2" style="display:none;width:100%;border:none;" height="352" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- RADIOHEAD -->
+    <div class="player-panel" id="panel-rh">
+      <div class="player-grid">
+
+        <div class="player-card">
+          <div class="player-card-label">OK Computer — Álbum completo</div>
+          <div class="player-cover" id="cover-rh-1" onclick="loadPlayer('cover-rh-1','frame-rh-1','https://open.spotify.com/embed/album/6dVIqQ8qmQ5GBnJ9shOYGE?utm_source=generator&theme=0')">
+            <img class="player-cover-art" src="https://i.scdn.co/image/ab67616d0000b2736b6a7e3b6d6b7b6b7b6b7b6b" alt="OK Computer" onerror="this.style.display='none'" />
+            <p class="player-cover-title">OK Computer</p>
+            <p class="player-cover-sub">Radiohead · 1997</p>
+            <button class="play-btn">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+              Abrir no Spotify
+            </button>
+          </div>
+          <iframe id="frame-rh-1" style="display:none;width:100%;border:none;" height="352" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+        </div>
+
+        <div class="player-card">
+          <div class="player-card-label">Kid A — Álbum completo</div>
+          <div class="player-cover" id="cover-rh-2" onclick="loadPlayer('cover-rh-2','frame-rh-2','https://open.spotify.com/embed/album/6GjwtEZcfenmOf6l18N7T7?utm_source=generator&theme=0')">
+            <img class="player-cover-art" src="https://i.scdn.co/image/ab67616d0000b2730c9a2c2a6b2a6b2a6b2a6b2a" alt="Kid A" onerror="this.style.display='none'" />
+            <p class="player-cover-title">Kid A</p>
+            <p class="player-cover-sub">Radiohead · 2000</p>
+            <button class="play-btn">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+              Abrir no Spotify
+            </button>
+          </div>
+          <iframe id="frame-rh-2" style="display:none;width:100%;border:none;" height="352" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- GAMES -->
+<section id="games">
+  <div class="sec-header fade-up"><span class="sec-num">05</span><h2 class="sec-title">Minigames</h2><div class="sec-line"></div></div>
+  <p class="games-intro fade-up">Pausa pro café — ou pro game. Três jogos feitos com <strong>HTML, CSS e JavaScript puro</strong>. Mais uma prova de que frontend vai muito além de landing pages.</p>
+
+  <div class="game-tabs fade-up">
+    <button class="game-tab active" onclick="switchGame('snake')">🐍 Snake</button>
+    <button class="game-tab" onclick="switchGame('memory')">🧠 Memória</button>
+    <button class="game-tab" onclick="switchGame('quiz')">💡 Quiz Dev</button>
+  </div>
+
+  <!-- SNAKE -->
+  <div class="game-panel active" id="gpanel-snake">
+    <div class="snake-wrap fade-up">
+      <div class="snake-canvas-box">
+        <canvas id="snakeCanvas" width="340" height="340"></canvas>
+        <div class="snake-overlay" id="snakeOverlay">
+          <p class="snake-overlay-title">Snake</p>
+          <p class="snake-overlay-sub">Use as setas ou o D-pad abaixo</p>
+          <button class="snake-btn" onclick="startSnake()">Iniciar</button>
+        </div>
+      </div>
+      <div class="snake-info">
+        <div class="snake-stat">
+          <div class="snake-stat-label">Pontos</div>
+          <div class="snake-stat-val" id="snakeScore">0</div>
+        </div>
+        <div class="snake-stat">
+          <div class="snake-stat-label">Recorde</div>
+          <div class="snake-stat-val" id="snakeBest">0</div>
+        </div>
+        <div class="snake-stat">
+          <div class="snake-stat-label">Nível</div>
+          <div class="snake-stat-val" id="snakeLevel">1</div>
+        </div>
+        <div class="snake-controls">
+          <div class="snake-controls-label">D-pad</div>
+          <div class="dpad">
+            <div class="dpad-empty"></div>
+            <div class="dpad-btn" ontouchstart="snakeDir(0,-1)" onclick="snakeDir(0,-1)">▲</div>
+            <div class="dpad-empty"></div>
+            <div class="dpad-btn" ontouchstart="snakeDir(-1,0)" onclick="snakeDir(-1,0)">◀</div>
+            <div class="dpad-btn" ontouchstart="startSnake()" onclick="startSnake()" style="font-size:10px;color:var(--accent);">▶▶</div>
+            <div class="dpad-btn" ontouchstart="snakeDir(1,0)" onclick="snakeDir(1,0)">▶</div>
+            <div class="dpad-empty"></div>
+            <div class="dpad-btn" ontouchstart="snakeDir(0,1)" onclick="snakeDir(0,1)">▼</div>
+            <div class="dpad-empty"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MEMORY -->
+  <div class="game-panel" id="gpanel-memory">
+    <div class="memory-header fade-up">
+      <div class="memory-stats">
+        <div class="mem-stat">Pares: <strong id="memPairs">0</strong>/8</div>
+        <div class="mem-stat">Tentativas: <strong id="memTries">0</strong></div>
+      </div>
+      <button class="memory-restart" onclick="initMemory()">↺ Reiniciar</button>
+    </div>
+    <div class="memory-grid fade-up" id="memGrid"></div>
+    <div class="memory-win" id="memWin">
+      <p>🎉 Você venceu!</p>
+      <span id="memWinMsg"></span>
+    </div>
+  </div>
+
+  <!-- QUIZ -->
+  <div class="game-panel" id="gpanel-quiz">
+    <div class="quiz-wrap fade-up">
+      <div class="quiz-progress-bar"><div class="quiz-progress-fill" id="quizFill" style="width:0%"></div></div>
+      <div id="quizGame">
+        <p class="quiz-q-num" id="quizNum">Pergunta 1 / 8</p>
+        <p class="quiz-question" id="quizQ"></p>
+        <div class="quiz-options" id="quizOpts"></div>
+        <p class="quiz-feedback" id="quizFeedback"></p>
+        <button class="quiz-next" id="quizNext" onclick="nextQuiz()">Próxima →</button>
+      </div>
+      <div class="quiz-result" id="quizResult">
+        <div class="quiz-score" id="quizScoreVal"></div>
+        <p class="quiz-result-msg" id="quizResultMsg"></p>
+        <button class="snake-btn" onclick="initQuiz()">Jogar de novo</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TERMINAL -->
+<section id="terminal">
+  <div class="sec-header fade-up"><span class="sec-num">06</span><h2 class="sec-title">Terminal</h2><div class="sec-line"></div></div>
+  <p class="games-intro fade-up">Um terminal de verdade (quase). Digite <strong>help</strong> e explore o site por linha de comando — do jeito que dev gosta. Dica: existe um código secreto escondido por aqui.</p>
+
+  <div class="term-window fade-up">
+    <div class="term-bar">
+      <span class="term-dot" style="background:#ef4444"></span>
+      <span class="term-dot" style="background:#eab308"></span>
+      <span class="term-dot" style="background:#22c55e"></span>
+      <span class="term-title">alexandre@teresina: ~/portfolio</span>
+    </div>
+    <div class="term-body" id="termBody">
+      <div>bem-vindo ao terminal do portfólio 👋</div>
+      <div>digite <span class="cmd">help</span> para ver os comandos disponíveis</div>
+      <br>
+    </div>
+    <div class="term-input-line" onclick="document.getElementById('termInput').focus()">
+      <span class="term-prompt">➜ ~</span>
+      <input id="termInput" autocomplete="off" spellcheck="false" placeholder="digite um comando..." />
+    </div>
+  </div>
+</section>
+
+<!-- NOTES -->
+<section id="notes">
+  <div class="sec-header fade-up"><span class="sec-num">07</span><h2 class="sec-title">Notas técnicas</h2><div class="sec-line"></div></div>
+  <p class="games-intro fade-up">Coisas que quebrei, consertei e aprendi construindo — inclusive este próprio site. Documentar o processo faz parte do trabalho.</p>
+
+  <div class="notes-grid">
+    <article class="note-card fade-up">
+      <p class="note-num">Nota 01 · Web APIs</p>
+      <p class="note-title">Spotify embeds bloqueados em file://</p>
+      <p class="note-text">Ao desenvolver este portfólio, os players do Spotify não carregavam localmente: navegadores bloqueiam iframes de terceiros no protocolo <code>file://</code>. A solução foi injetar o iframe via JavaScript apenas no clique do usuário — padrão click-to-load. Bônus: a página carrega mais rápido, porque os embeds só pesam quando alguém realmente quer ouvir.</p>
+      <div class="proj-tags"><span class="proj-tag">iframe</span><span class="proj-tag">Lazy load</span><span class="proj-tag">CORS</span></div>
+    </article>
+
+    <article class="note-card fade-up">
+      <p class="note-num">Nota 02 · JavaScript</p>
+      <p class="note-title">Estado indefinido derruba a página inteira</p>
+      <p class="note-text">O jogo Snake deste site desenhava o tabuleiro no carregamento — antes do estado existir. Resultado: <code>TypeError</code> que travava todo o script da página, quebrando funcionalidades sem relação com o jogo. Lição gravada: todo estado precisa de valor inicial seguro, e um erro não tratado nunca fica isolado — ele derruba tudo que vem depois.</p>
+      <div class="proj-tags"><span class="proj-tag">Debug</span><span class="proj-tag">Estado</span><span class="proj-tag">Canvas</span></div>
+    </article>
+
+    <article class="note-card fade-up">
+      <p class="note-num">Nota 03 · CSS</p>
+      <p class="note-title">Dark mode com CSS variables</p>
+      <p class="note-text">Todo o tema deste site vive em variáveis CSS: trocar de escuro para claro é mudar um atributo <code>data-theme</code> no HTML — zero JavaScript recalculando estilos. A preferência persiste em <code>localStorage</code>. Padrão simples, escalável e o mesmo usado em design systems de produção.</p>
+      <div class="proj-tags"><span class="proj-tag">CSS vars</span><span class="proj-tag">localStorage</span><span class="proj-tag">Design system</span></div>
+    </article>
+  </div>
+</section>
+
+<!-- DEPOIMENTOS — remova o style="display:none" quando tiver depoimentos reais de professores, colegas ou clientes -->
+<section id="testimonials" style="display:none">
+  <div class="sec-header fade-up"><span class="sec-num">★</span><h2 class="sec-title">Depoimentos</h2><div class="sec-line"></div></div>
+  <div class="testi-grid">
+    <div class="testi-card fade-up">
+      <p class="testi-quote">"Substitua este texto pelo depoimento real de um professor, colega de projeto ou cliente de freela."</p>
+      <p class="testi-author"><strong>Nome da Pessoa</strong> · Cargo / Relação</p>
+    </div>
+    <div class="testi-card fade-up">
+      <p class="testi-quote">"Um segundo depoimento aqui. Duas ou três linhas já causam ótima impressão."</p>
+      <p class="testi-author"><strong>Nome da Pessoa</strong> · Cargo / Relação</p>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="sec-header fade-up"><span class="sec-num">08</span><h2 class="sec-title">Sobre</h2><div class="sec-line"></div></div>
+  <div class="about-grid">
+    <div class="about-text fade-up">
+      <p>Sou <strong>Alexandre Araújo Rodrigues</strong>, desenvolvedor frontend de <em>Teresina, Piauí</em>, cursando Análise e Desenvolvimento de Sistemas.</p>
+      <p>Trabalho principalmente com <strong>React, TypeScript e Vite</strong>, com atenção constante a código limpo, componentização e responsividade. Também tenho experiência com <strong>PHP</strong> no backend em projetos acadêmicos, o que me dá visão do ciclo completo de uma aplicação.</p>
+      <p>Minha base em <strong>Photoshop e Illustrator</strong> me dá um olhar apurado para UI — entrego interfaces que funcionam bem e ficam bonitas.</p>
+      <p>Busco <strong>estágio, freelas e vagas júnior</strong> onde eu possa contribuir desde o primeiro dia e crescer junto com o time.</p>
+      <div class="timeline">
+        <div class="tl-item"><p class="tl-year">Formação</p><p class="tl-event">Cursando <strong>Análise e Desenvolvimento de Sistemas</strong></p></div>
+        <div class="tl-item"><p class="tl-year">Base</p><p class="tl-event">Fundamentos sólidos em <strong>HTML, CSS e JavaScript</strong></p></div>
+        <div class="tl-item"><p class="tl-year">Stack atual</p><p class="tl-event">Projetos com <strong>React, TypeScript e Vite</strong></p></div>
+        <div class="tl-item"><p class="tl-year">Fullstack</p><p class="tl-event">Sistema <strong>CRUD com PHP</strong> e JavaScript</p></div>
+        <div class="tl-item"><p class="tl-year">Agora →</p><p class="tl-event">Aberto a <strong>oportunidades e novos desafios</strong></p></div>
+      </div>
+    </div>
+    <div class="fade-up">
+      <div class="about-card">
+        <div class="about-card-header">Informações</div>
+        <div>
+          <div class="about-row"><span class="about-key">Localização</span><span class="about-val">Teresina, PI</span></div>
+          <div class="about-row"><span class="about-key">Formação</span><span class="about-val">ADS · em curso</span></div>
+          <div class="about-row"><span class="about-key">Foco</span><span class="about-val">Frontend Dev</span></div>
+          <div class="about-row"><span class="about-key">Status</span><span class="about-val ok">Disponível ✓</span></div>
+          <div class="about-row"><span class="about-key">GitHub</span><span class="about-val">@crispim234</span></div>
+          <div class="about-row"><span class="about-key">E-mail</span><span class="about-val" style="font-size:10.5px;">alexandrearaujorodrigues7@gmail.com</span></div>
+        </div>
+      </div>
+      <a class="btn-primary" href="https://github.com/crispim234" target="_blank" style="display:inline-flex; margin-top:1rem; text-decoration:none;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+        Ver todos os projetos
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="sec-header fade-up"><span class="sec-num">09</span><h2 class="sec-title">Contato</h2><div class="sec-line"></div></div>
+  <p class="contact-intro fade-up">Vamos <em>construir</em><br>algo juntos?</p>
+
+  <div class="fade-up" style="margin-bottom:2.5rem;">
+    <!-- Coloque seu currículo como "curriculo.pdf" na mesma pasta do index.html -->
+    <a class="btn-primary" href="curriculo.pdf" download="Curriculo-Alexandre-Araujo.pdf" style="text-decoration:none;">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+      Baixar currículo (PDF)
+    </a>
+  </div>
+  <div class="contact-grid fade-up">
+    <a class="contact-card" href="https://github.com/crispim234" target="_blank">
+      <div><p class="cc-platform">GitHub</p><p class="cc-handle">github.com/crispim234</p></div>
+      <span class="cc-arrow">↗</span>
+    </a>
+    <a class="contact-card" href="https://www.linkedin.com/in/alexandre-araujo-571847346/" target="_blank">
+      <div><p class="cc-platform">LinkedIn</p><p class="cc-handle">Alexandre Araújo</p></div>
+      <span class="cc-arrow">↗</span>
+    </a>
+    <a class="contact-card" href="https://www.instagram.com/alexandre.zzk/" target="_blank">
+      <div><p class="cc-platform">Instagram</p><p class="cc-handle">@alexandre.zzk</p></div>
+      <span class="cc-arrow">↗</span>
+    </a>
+    <a class="contact-card" href="mailto:alexandrearaujorodrigues7@gmail.com">
+      <div><p class="cc-platform">Email</p><p class="cc-handle">alexandrearaujorodrigues7@gmail.com</p></div>
+      <span class="cc-arrow">✉</span>
+    </a>
+  </div>
+  <p class="contact-note fade-up">Respondo rápido — me chama por e-mail ou LinkedIn. Disponível para estágio, freelas e vagas júnior.</p>
+</section>
+
+<footer>
+  <span>© 2026 Alexandre Araújo Rodrigues</span>
+  <span id="footClock"></span>
+  <span>Desenvolvido com HTML · CSS · JS puro</span>
+</footer>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
