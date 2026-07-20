@@ -2,12 +2,13 @@
 
 > Portfólio pessoal de desenvolvedor frontend, construído com **HTML, CSS e JavaScript puro** — sem frameworks, sem dependências de build. Um único site estático, rápido e 100% autocontido.
 
-🔗 **Ao vivo:** [crispim234.github.io](https://crispim234.github.io)
+🔗 **Ao vivo:** [crispim234.github.io](https://crispim234.github.io) · [alexandre-portfolio-dev.vercel.app](https://alexandre-portfolio-dev.vercel.app/)
 
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)
 ![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-222?style=flat&logo=github&logoColor=white)
+![Vercel](https://img.shields.io/badge/Vercel-000?style=flat&logo=vercel&logoColor=white)
 
 ---
 
