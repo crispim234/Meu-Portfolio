@@ -24,6 +24,7 @@ O visual segue uma estética **minimalista-editorial** com paleta **azul e preto
 
 ### 🎨 Interface e experiência
 - **Tema claro/escuro** com persistência via `localStorage`
+- **Ícones SVG** (lucide) em toda a interface — nada de emoji, visual consistente em qualquer sistema
 - **Cursor customizado** com anel que segue o mouse (desativado em telas touch)
 - **Preloader** estilo boot de terminal na abertura
 - **Texto digitado** rotativo no cabeçalho (efeito typewriter)
@@ -37,14 +38,14 @@ O visual segue uma estética **minimalista-editorial** com paleta **azul e preto
 - **ViaCEP** — busca de endereço por CEP com validação e tratamento de erros
 
 ### 🎮 Minigames (JavaScript puro)
-- **Snake** — com canvas, níveis progressivos e controle por teclado ou D-pad
+- **Snake** — com canvas, níveis progressivos, controle por teclado ou D-pad, e HUD de pontuação/nível reorganizado acima do tabuleiro no mobile pra não sumir da tela durante o jogo
 - **Jogo da memória** — cartas com ícones de tecnologias
 - **Quiz de desenvolvimento** — 8 perguntas com feedback imediato
 
 ### 🖥️ Extras interativos
 - **Terminal funcional** — comandos como `help`, `sobre`, `projetos`, `github`, `resume`, `stats`
 - **Sistema de conquistas** — toasts desbloqueáveis salvos no navegador
-- **Easter egg Konami** — digite ↑↑↓↓←→←→BA para uma surpresa 🕹️
+- **Easter egg Konami** — digite ↑↑↓↓←→←→BA para uma surpresa
 - **Player do Spotify** — trilha sonora integrada (Alice in Chains + Radiohead)
 
 ### 🎯 Conteúdo profissional
