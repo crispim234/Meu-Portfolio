@@ -1,16 +1,62 @@
+  /* ICONS — lucide (MIT), inlined as SVG paths */
+  const ICONS = {
+    sun: '<circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/>',
+    moon: '<path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/>',
+    zap: '<path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/>',
+    wrench: '<path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.106-3.105c.32-.322.863-.22.983.218a6 6 0 0 1-8.259 7.057l-7.91 7.91a1 1 0 0 1-2.999-3l7.91-7.91a6 6 0 0 1 7.057-8.259c.438.12.54.662.219.984z"/>',
+    brain: '<path d="M12 18V5"/><path d="M15 13a4.17 4.17 0 0 1-3-4 4.17 4.17 0 0 1-3 4"/><path d="M17.598 6.5A3 3 0 1 0 12 5a3 3 0 1 0-5.598 1.5"/><path d="M17.997 5.125a4 4 0 0 1 2.526 5.77"/><path d="M18 18a4 4 0 0 0 2-7.464"/><path d="M19.967 17.483A4 4 0 1 1 12 18a4 4 0 1 1-7.967-.517"/><path d="M6 18a4 4 0 0 1-2-7.464"/><path d="M6.003 5.125a4 4 0 0 0-2.526 5.77"/>',
+    palette: '<path d="M12 22a1 1 0 0 1 0-20 10 9 0 0 1 10 9 5 5 0 0 1-5 5h-2.25a1.75 1.75 0 0 0-1.4 2.8l.3.4a1.75 1.75 0 0 1-1.4 2.8z"/><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/>',
+    atom: '<circle cx="12" cy="12" r="1"/><path d="M20.2 20.2c2.04-2.03.02-7.36-4.5-11.9-4.54-4.52-9.87-6.54-11.9-4.5-2.04 2.03-.02 7.36 4.5 11.9 4.54 4.52 9.87 6.54 11.9 4.5Z"/><path d="M15.7 15.7c4.52-4.54 6.54-9.87 4.5-11.9-2.03-2.04-7.36-.02-11.9 4.5-4.52 4.54-6.54 9.87-4.5 11.9 2.03 2.04 7.36.02 11.9-4.5Z"/>',
+    server: '<rect width="20" height="8" x="2" y="2" rx="2" ry="2"/><rect width="20" height="8" x="2" y="14" rx="2" ry="2"/><line x1="6" x2="6.01" y1="6" y2="6"/><line x1="6" x2="6.01" y1="18" y2="18"/>',
+    worm: '<path d="m19 12-1.5 3"/><path d="M19.63 18.81 22 20"/><path d="M6.47 8.23a1.68 1.68 0 0 1 2.44 1.93l-.64 2.08a6.76 6.76 0 0 0 10.16 7.67l.42-.27a1 1 0 1 0-2.73-4.21l-.42.27a1.76 1.76 0 0 1-2.63-1.99l.64-2.08A6.66 6.66 0 0 0 3.94 3.9l-.7.4a1 1 0 1 0 2.55 4.34z"/>',
+    lightbulb: '<path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/>',
+    package: '<path d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z"/><path d="M12 22V12"/><polyline points="3.29 7 12 12 20.71 7"/><path d="m7.5 4.27 9 5.15"/>',
+    braces: '<path d="M8 3H7a2 2 0 0 0-2 2v5a2 2 0 0 1-2 2 2 2 0 0 1 2 2v5c0 1.1.9 2 2 2h1"/><path d="M16 21h1a2 2 0 0 0 2-2v-5c0-1.1.9-2 2-2a2 2 0 0 1-2-2V5a2 2 0 0 0-2-2h-1"/>',
+    github: '<path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" fill="currentColor" stroke="none"/>',
+    check: '<path d="M20 6 9 17l-5-5"/>',
+    x: '<path d="M18 6 6 18"/><path d="m6 6 12 12"/>',
+    star: '<path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z" fill="currentColor" stroke="none"/>',
+    mail: '<path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"/><rect x="2" y="4" width="20" height="16" rx="2"/>',
+    coffee: '<path d="M10 2v2"/><path d="M14 2v2"/><path d="M16 8a1 1 0 0 1 1 1v8a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V9a1 1 0 0 1 1-1h14a4 4 0 1 1 0 8h-1"/><path d="M6 2v2"/>',
+    rocket: '<path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09"/><path d="M9 12a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.4 22.4 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 .05 5 .05"/>',
+    'book-open': '<path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/>',
+    flame: '<path d="M12 3q1 4 4 6.5t3 5.5a1 1 0 0 1-14 0 5 5 0 0 1 1-3 1 1 0 0 0 5 0c0-2-1.5-3-1.5-5q0-2 2.5-4"/>',
+    dumbbell: '<path d="M17.596 12.768a2 2 0 1 0 2.829-2.829l-1.768-1.767a2 2 0 0 0 2.828-2.829l-2.828-2.828a2 2 0 0 0-2.829 2.828l-1.767-1.768a2 2 0 1 0-2.829 2.829z"/><path d="m2.5 21.5 1.4-1.4"/><path d="m20.1 3.9 1.4-1.4"/><path d="M5.343 21.485a2 2 0 1 0 2.829-2.828l1.767 1.768a2 2 0 1 0 2.829-2.829l-6.364-6.364a2 2 0 1 0-2.829 2.829l1.768 1.767a2 2 0 0 0-2.828 2.829z"/><path d="m9.6 14.4 4.8-4.8"/>',
+    laugh: '<circle cx="12" cy="12" r="10"/><path d="M18 13a6 6 0 0 1-6 5 6 6 0 0 1-6-5h12Z"/><line x1="9" x2="9.01" y1="9" y2="9"/><line x1="15" x2="15.01" y1="9" y2="9"/>',
+    smile: '<circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" x2="9.01" y1="9" y2="9"/><line x1="15" x2="15.01" y1="9" y2="9"/>',
+    compass: '<circle cx="12" cy="12" r="10"/><path d="m16.24 7.76-1.804 5.411a2 2 0 0 1-1.265 1.265L7.76 16.24l1.804-5.411a2 2 0 0 1 1.265-1.265z"/>',
+    'gamepad-2': '<line x1="6" x2="10" y1="11" y2="11"/><line x1="8" x2="8" y1="9" y2="13"/><line x1="15" x2="15.01" y1="12" y2="12"/><line x1="18" x2="18.01" y1="10" y2="10"/><path d="M17.32 5H6.68a4 4 0 0 0-3.978 3.59c-.006.052-.01.101-.017.152C2.604 9.416 2 14.456 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.414-1.414A2 2 0 0 1 9.828 16h4.344a2 2 0 0 1 1.414.586L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.545-.604-6.584-.685-7.258-.007-.05-.011-.1-.017-.151A4 4 0 0 0 17.32 5z"/>',
+    terminal: '<path d="M12 19h8"/><path d="m4 17 6-6-6-6"/>',
+    key: '<path d="m15.5 7.5 2.3 2.3a1 1 0 0 0 1.4 0l2.1-2.1a1 1 0 0 0 0-1.4L19 4"/><path d="m21 2-9.6 9.6"/><circle cx="7.5" cy="15.5" r="5.5"/>',
+    headphones: '<path d="M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7a9 9 0 0 1 18 0v7a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3"/>',
+    contrast: '<circle cx="12" cy="12" r="10"/><path d="M12 18a6 6 0 0 0 0-12v12z"/>',
+    'trending-up': '<path d="M16 7h6v6"/><path d="m22 7-8.5 8.5-5-5L2 17"/>',
+    'party-popper': '<path d="M5.8 11.3 2 22l10.7-3.79"/><path d="M4 3h.01"/><path d="M22 8h.01"/><path d="M15 2h.01"/><path d="M22 20h.01"/><path d="m22 2-2.24.75a2.9 2.9 0 0 0-1.96 3.12c.1.86-.57 1.63-1.45 1.63h-.38c-.86 0-1.6.6-1.76 1.44L14 10"/><path d="m22 13-.82-.33c-.86-.34-1.82.2-1.98 1.11c-.11.7-.72 1.22-1.43 1.22H17"/><path d="m11 2 .33.82c.34.86-.2 1.82-1.11 1.98C9.52 4.9 9 5.52 9 6.23V7"/><path d="M11 13c1.93 1.93 2.83 4.17 2 5-.83.83-3.07-.07-5-2-1.93-1.93-2.83-4.17-2-5 .83-.83 3.07.07 5 2Z"/>',
+    hand: '<path d="M18 11V6a2 2 0 0 0-2-2a2 2 0 0 0-2 2"/><path d="M14 10V4a2 2 0 0 0-2-2a2 2 0 0 0-2 2v2"/><path d="M10 10.5V6a2 2 0 0 0-2-2a2 2 0 0 0-2 2v8"/><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"/>',
+    'chevron-up': '<path d="m18 15-6-6-6 6"/>',
+    'chevron-down': '<path d="m6 9 6 6 6-6"/>',
+    'chevron-left': '<path d="m15 18-6-6 6-6"/>',
+    'chevron-right': '<path d="m9 18 6-6-6-6"/>',
+    play: '<path d="M8 5v14l11-7z" fill="currentColor" stroke="none"/>',
+  };
+  function icon(name, size) {
+    size = size || 14;
+    return `<svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">${ICONS[name] || ''}</svg>`;
+  }
+
   /* THEME */
   function toggleTheme() {
     const html = document.documentElement;
     const isDark = html.getAttribute('data-theme') === 'dark';
     html.setAttribute('data-theme', isDark ? 'light' : 'dark');
-    document.getElementById('themeIcon').textContent = isDark ? '🌙' : '☀️';
+    document.getElementById('themeIcon').innerHTML = icon(isDark ? 'moon' : 'sun');
     document.getElementById('themeLabel').textContent = isDark ? 'Escuro' : 'Claro';
     localStorage.setItem('theme', isDark ? 'light' : 'dark');
   }
   const saved = localStorage.getItem('theme');
   if (saved === 'light') {
     document.documentElement.setAttribute('data-theme','light');
-    document.getElementById('themeIcon').textContent = '🌙';
+    document.getElementById('themeIcon').innerHTML = icon('moon');
     document.getElementById('themeLabel').textContent = 'Escuro';
   }
 
@@ -233,10 +279,10 @@
      MEMORY GAME
   ════════════════════════════════ */
   const memCards = [
-    {icon:'⚛️',label:'React'},    {icon:'🟦',label:'TypeScript'},
-    {icon:'⚡',label:'Vite'},     {icon:'🎨',label:'CSS3'},
-    {icon:'📦',label:'Node.js'},  {icon:'🐙',label:'GitHub'},
-    {icon:'🐘',label:'PHP'},      {icon:'🐍',label:'Python'},
+    {icon:'atom',label:'React'},    {icon:'braces',label:'TypeScript'},
+    {icon:'zap',label:'Vite'},     {icon:'palette',label:'CSS3'},
+    {icon:'package',label:'Node.js'},  {icon:'github',label:'GitHub'},
+    {icon:'server',label:'PHP'},      {icon:'worm',label:'Python'},
   ];
   let memFlipped=[], memMatched=0, memTries=0, memLocked=false, memInited=false;
 
@@ -252,7 +298,7 @@
       const el = document.createElement('div');
       el.className = 'mem-card';
       el.dataset.label = card.label;
-      el.innerHTML = `<div class="mem-card-inner"><div class="mem-card-front">?</div><div class="mem-card-back"><div class="mem-icon">${card.icon}</div><div class="mem-label">${card.label}</div></div></div>`;
+      el.innerHTML = `<div class="mem-card-inner"><div class="mem-card-front">?</div><div class="mem-card-back"><div class="mem-icon">${icon(card.icon, 28)}</div><div class="mem-label">${card.label}</div></div></div>`;
       el.addEventListener('click', () => flipMemCard(el));
       grid.appendChild(el);
     });
@@ -325,8 +371,8 @@
     quizAnswered = true;
     const q = quizData[quizIdx];
     document.querySelectorAll('.quiz-opt').forEach((b,j)=>{ b.disabled=true; if(j===q.a)b.classList.add('correct'); });
-    if (i===q.a) { quizScore++; document.getElementById('quizFeedback').textContent='✓ Correto! '+q.tip; }
-    else { btn.classList.add('wrong'); document.getElementById('quizFeedback').textContent='✗ Errou. '+q.tip; }
+    if (i===q.a) { quizScore++; document.getElementById('quizFeedback').innerHTML=icon('check',13)+' Correto! '+q.tip; }
+    else { btn.classList.add('wrong'); document.getElementById('quizFeedback').innerHTML=icon('x',13)+' Errou. '+q.tip; }
     document.getElementById('quizNext').classList.add('show');
   }
 
@@ -338,8 +384,14 @@
       const res = document.getElementById('quizResult');
       res.classList.add('show');
       document.getElementById('quizScoreVal').textContent = `${quizScore}/${quizData.length}`;
-      const msgs = ['Continue estudando! 💪','Bom começo! 📖','Indo bem! 🚀','Muito bem! ⚡','Excelente! Manda o currículo! 🔥'];
-      document.getElementById('quizResultMsg').textContent = msgs[Math.min(Math.floor(quizScore/2), msgs.length-1)];
+      const msgs = [
+        `Continue estudando! ${icon('dumbbell',14)}`,
+        `Bom começo! ${icon('book-open',14)}`,
+        `Indo bem! ${icon('rocket',14)}`,
+        `Muito bem! ${icon('zap',14)}`,
+        `Excelente! Manda o currículo! ${icon('flame',14)}`
+      ];
+      document.getElementById('quizResultMsg').innerHTML = msgs[Math.min(Math.floor(quizScore/2), msgs.length-1)];
     } else { renderQuiz(); }
   }
 
@@ -350,8 +402,8 @@
     const lines = [
       '&gt; inicializando alexandre.dev',
       '&gt; carregando módulos... <span class="ok">ok</span>',
-      '&gt; tema: azul/preto <span class="ok">✓</span>',
-      '&gt; bem-vindo(a)! <span class="ok">✓</span>'
+      `&gt; tema: azul/preto <span class="ok">${icon('check',12)}</span>`,
+      `&gt; bem-vindo(a)! <span class="ok">${icon('check',12)}</span>`
     ];
     const el = document.getElementById('bootText');
     let i = 0;
@@ -365,7 +417,7 @@
      TYPED — frases rotativas no hero
   ════════════════════════════════ */
   (function(){
-    const phrases = ['React Developer', 'TypeScript Enthusiast', 'Estudante de ADS', 'UI apaixonado por detalhes', 'Movido a café ☕'];
+    const phrases = ['React Developer', 'TypeScript Enthusiast', 'Estudante de ADS', 'UI apaixonado por detalhes', 'Movido a café'];
     let pi = 0, ci = 0, del = false;
     (function type(){
       const el = document.getElementById('typedText');
@@ -414,12 +466,12 @@
      CONQUISTAS (achievements)
   ════════════════════════════════ */
   const ACH = {
-    explorer:  { icon:'🧭', name:'Explorador',  desc:'Visitou todas as seções do site' },
-    gamer:     { icon:'🎮', name:'Gamer',       desc:'Jogou uma partida de Snake' },
-    hacker:    { icon:'💻', name:'Hacker',      desc:'Usou o terminal' },
-    konami:    { icon:'🕹️', name:'Konami!',     desc:'Descobriu o código secreto' },
-    dj:        { icon:'🎧', name:'DJ',          desc:'Deu play na trilha sonora' },
-    chameleon: { icon:'🦎', name:'Camaleão',    desc:'Alternou o tema do site' }
+    explorer:  { icon:'compass', name:'Explorador',  desc:'Visitou todas as seções do site' },
+    gamer:     { icon:'gamepad-2', name:'Gamer',       desc:'Jogou uma partida de Snake' },
+    hacker:    { icon:'terminal', name:'Hacker',      desc:'Usou o terminal' },
+    konami:    { icon:'key', name:'Konami!',     desc:'Descobriu o código secreto' },
+    dj:        { icon:'headphones', name:'DJ',          desc:'Deu play na trilha sonora' },
+    chameleon: { icon:'contrast', name:'Camaleão',    desc:'Alternou o tema do site' }
   };
   function unlock(id) {
     const key = 'ach_' + id;
@@ -428,7 +480,7 @@
     const a = ACH[id];
     const t = document.createElement('div');
     t.className = 'toast';
-    t.innerHTML = `<span class="toast-icon">${a.icon}</span><div><div class="toast-tag">Conquista desbloqueada</div><div class="toast-name">${a.name}</div><div class="toast-desc">${a.desc}</div></div>`;
+    t.innerHTML = `<span class="toast-icon">${icon(a.icon, 20)}</span><div><div class="toast-tag">Conquista desbloqueada</div><div class="toast-name">${a.name}</div><div class="toast-desc">${a.desc}</div></div>`;
     document.getElementById('toastWrap').appendChild(t);
     setTimeout(() => { t.classList.add('out'); setTimeout(() => t.remove(), 450); }, 4000);
   }
@@ -464,23 +516,23 @@
     termBody.scrollTop = termBody.scrollHeight;
   }
   const termCmds = {
-    help: () => 'comandos disponíveis:<br>&nbsp;&nbsp;<span class="cmd">sobre</span> · quem sou eu<br>&nbsp;&nbsp;<span class="cmd">projetos</span> · meus repositórios<br>&nbsp;&nbsp;<span class="cmd">skills</span> · tecnologias<br>&nbsp;&nbsp;<span class="cmd">contato</span> · onde me achar<br>&nbsp;&nbsp;<span class="cmd">github</span> · abre meu perfil<br>&nbsp;&nbsp;<span class="cmd">theme</span> · alterna claro/escuro<br>&nbsp;&nbsp;<span class="cmd">musica</span> · minha trilha sonora<br>&nbsp;&nbsp;<span class="cmd">whoami</span> · você<br>&nbsp;&nbsp;<span class="cmd">date</span> · data e hora<br>&nbsp;&nbsp;<span class="cmd">coffee</span> · ☕<br>&nbsp;&nbsp;<span class="cmd">resume</span> · baixa meu currículo<br>&nbsp;&nbsp;<span class="cmd">stats</span> · suas visitas<br>&nbsp;&nbsp;<span class="cmd">konami</span> · 🤫<br>&nbsp;&nbsp;<span class="cmd">clear</span> · limpa a tela',
-    sobre: () => 'Alexandre Araújo Rodrigues — dev frontend em Teresina, PI.<br>Curso ADS e amo React, TypeScript e café. ☕',
+    help: () => `comandos disponíveis:<br>&nbsp;&nbsp;<span class="cmd">sobre</span> · quem sou eu<br>&nbsp;&nbsp;<span class="cmd">projetos</span> · meus repositórios<br>&nbsp;&nbsp;<span class="cmd">skills</span> · tecnologias<br>&nbsp;&nbsp;<span class="cmd">contato</span> · onde me achar<br>&nbsp;&nbsp;<span class="cmd">github</span> · abre meu perfil<br>&nbsp;&nbsp;<span class="cmd">theme</span> · alterna claro/escuro<br>&nbsp;&nbsp;<span class="cmd">musica</span> · minha trilha sonora<br>&nbsp;&nbsp;<span class="cmd">whoami</span> · você<br>&nbsp;&nbsp;<span class="cmd">date</span> · data e hora<br>&nbsp;&nbsp;<span class="cmd">coffee</span> · ${icon('coffee',12)}<br>&nbsp;&nbsp;<span class="cmd">resume</span> · baixa meu currículo<br>&nbsp;&nbsp;<span class="cmd">stats</span> · suas visitas<br>&nbsp;&nbsp;<span class="cmd">konami</span> · ${icon('key',12)}<br>&nbsp;&nbsp;<span class="cmd">clear</span> · limpa a tela`,
+    sobre: () => `Alexandre Araújo Rodrigues — dev frontend em Teresina, PI.<br>Curso ADS e amo React, TypeScript e café. ${icon('coffee',12)}`,
     projetos: () => '01 · App React + TS + Vite<br>02 · Site React App + TypeScript<br>03 · Sistema CRUD em PHP<br>→ digite <span class="cmd">github</span> para ver todos',
     skills: () => 'React · TypeScript · Vite · JavaScript ES6+ · HTML5 · CSS3<br>Git · Linux · Python · PHP · Photoshop · Illustrator',
     contato: () => 'E-mail: alexandrearaujorodrigues7@gmail.com<br>GitHub: github.com/crispim234<br>LinkedIn: Alexandre Araújo<br>Instagram: @alexandre.zzk',
-    github: () => { window.open('https://github.com/crispim234', '_blank'); return 'abrindo github... <span class="ok">✓</span>'; },
-    theme: () => { toggleTheme(); return 'tema alternado <span class="ok">✓</span>'; },
-    musica: () => 'Alice in Chains + Radiohead. 🎧<br>Sobe até a seção Trilha Sonora e dá o play.',
+    github: () => { window.open('https://github.com/crispim234', '_blank'); return `abrindo github... <span class="ok">${icon('check',12)}</span>`; },
+    theme: () => { toggleTheme(); return `tema alternado <span class="ok">${icon('check',12)}</span>`; },
+    musica: () => `Alice in Chains + Radiohead. ${icon('headphones',12)}<br>Sobe até a seção Trilha Sonora e dá o play.`,
     whoami: () => 'visitante@alexandre.dev — muito prazer!',
     date: () => new Date().toLocaleString('pt-BR'),
     ls: () => 'projetos/&nbsp;&nbsp;skills/&nbsp;&nbsp;musica/&nbsp;&nbsp;games/&nbsp;&nbsp;sobre.txt&nbsp;&nbsp;contato.md',
-    coffee: () => '&nbsp;&nbsp;(&nbsp;(<br>&nbsp;&nbsp;&nbsp;)&nbsp;)<br>&nbsp;[______]<br>&nbsp;|&nbsp;café&nbsp;|]<br>&nbsp;\\______/&nbsp;&nbsp;servido! ☕',
-    sudo: () => 'usuário não está no arquivo sudoers.<br>este incidente será reportado. 😅',
-    konami: () => 'tenta: ↑ ↑ ↓ ↓ ← → ← → B A &nbsp;😉',
-    resume: () => { window.open('curriculo.pdf', '_blank'); return 'abrindo currículo... <span class="ok">✓</span>'; },
+    coffee: () => `&nbsp;&nbsp;(&nbsp;(<br>&nbsp;&nbsp;&nbsp;)&nbsp;)<br>&nbsp;[______]<br>&nbsp;|&nbsp;café&nbsp;|]<br>&nbsp;\\______/&nbsp;&nbsp;servido! ${icon('coffee',12)}`,
+    sudo: () => `usuário não está no arquivo sudoers.<br>este incidente será reportado. ${icon('laugh',12)}`,
+    konami: () => `tenta: ↑ ↑ ↓ ↓ ← → ← → B A &nbsp;${icon('smile',12)}`,
+    resume: () => { window.open('curriculo.pdf', '_blank'); return `abrindo currículo... <span class="ok">${icon('check',12)}</span>`; },
     curriculo: () => termCmds.resume(),
-    stats: () => `você já visitou este site <span class="ok">${localStorage.getItem('visits') || 1}x</span> neste navegador 📈`,
+    stats: () => `você já visitou este site <span class="ok">${localStorage.getItem('visits') || 1}x</span> neste navegador ${icon('trending-up',12)}`,
     clear: () => { termBody.innerHTML = ''; return null; }
   };
   termInput.addEventListener('keydown', e => {
@@ -564,7 +616,7 @@
           const lang = document.createElement('span');
           lang.textContent = repo.language || '—';
           const star = document.createElement('span');
-          star.textContent = '★ ' + repo.stargazers_count;
+          star.innerHTML = icon('star', 11) + ' ' + repo.stargazers_count;
           meta.append(lang, star);
           a.append(name, desc, meta);
           grid.appendChild(a);
