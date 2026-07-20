@@ -9,6 +9,14 @@
 <meta property="og:title" content="Alexandre Araújo — Frontend Developer" />
 <meta property="og:description" content="React · TypeScript · Vite. Código limpo e interfaces que conversam." />
 <meta property="og:type" content="website" />
+<meta property="og:url" content="https://crispim234.github.io/" />
+<meta property="og:image" content="https://crispim234.github.io/profile.jpeg" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Alexandre Araújo — Frontend Developer" />
+<meta name="twitter:description" content="React · TypeScript · Vite. Código limpo e interfaces que conversam." />
+<meta name="twitter:image" content="https://crispim234.github.io/profile.jpeg" />
+<meta name="theme-color" content="#06080f" />
+<link rel="canonical" href="https://crispim234.github.io/" />
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%2306080f'/><text x='50' y='68' font-size='52' text-anchor='middle' fill='%233b82f6' font-family='monospace'>A</text></svg>" />
 <!-- GOOGLE ANALYTICS (opcional): crie uma conta em analytics.google.com,
      pegue seu ID (formato G-XXXXXXXXXX), troque abaixo e descomente:
@@ -22,6 +30,7 @@
 -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preload" as="image" href="profile.jpeg" />
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="style.css" />
 </head>
@@ -46,6 +55,7 @@
     <li><a href="#hero" class="active">início</a></li>
     <li><a href="#projects">projetos</a></li>
     <li><a href="#lab">lab</a></li>
+    <li><a href="#skills">skills</a></li>
     <li><a href="#music">música</a></li>
     <li><a href="#games">games</a></li>
     <li><a href="#terminal">terminal</a></li>
@@ -97,7 +107,7 @@
               <p class="photo-label">Adicionar foto</p>
               <p class="photo-sub">clique para fazer upload</p>
             </div>
-            <img id="photoImg" src="profile.jpeg" alt="Alexandre Araújo" class="loaded" />
+            <img id="photoImg" src="profile.jpeg" alt="Alexandre Araújo" class="loaded" width="400" height="400" fetchpriority="high" />
             <input type="file" id="photoInput" class="photo-input" accept="image/*" />
             <span class="photo-badge">alexandre araújo</span>
             <button type="button" class="photo-edit-btn" id="photoEditBtn" title="Trocar foto">
@@ -320,7 +330,7 @@
         <div class="player-card">
           <div class="player-card-label">Dirt — Álbum completo</div>
           <div class="player-cover" id="cover-aic-1" onclick="loadPlayer('cover-aic-1','frame-aic-1','https://open.spotify.com/embed/album/6bUJpbekaIlSPkO0TDLSF8?utm_source=generator&theme=0')">
-            <img class="player-cover-art" src="https://i.scdn.co/image/ab67616d0000b273e46f63b77b43e1c2d331aedb" alt="Dirt" onerror="this.style.display='none'" />
+            <div class="player-cover-icon" aria-hidden="true"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/></svg></div>
             <p class="player-cover-title">Dirt</p>
             <p class="player-cover-sub">Alice in Chains · 1992</p>
             <button class="play-btn">
@@ -334,7 +344,7 @@
         <div class="player-card">
           <div class="player-card-label">Unplugged — MTV 1996</div>
           <div class="player-cover" id="cover-aic-2" onclick="loadPlayer('cover-aic-2','frame-aic-2','https://open.spotify.com/embed/album/6gIVBN8UeVJUbgbgEECoXS?utm_source=generator&theme=0')">
-            <img class="player-cover-art" src="https://i.scdn.co/image/ab67616d0000b2737e8e1e0d4e9f1e6f0a6b5e1a" alt="Unplugged" onerror="this.style.display='none'" />
+            <div class="player-cover-icon" aria-hidden="true"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/></svg></div>
             <p class="player-cover-title">MTV Unplugged</p>
             <p class="player-cover-sub">Alice in Chains · 1996</p>
             <button class="play-btn">
@@ -355,7 +365,7 @@
         <div class="player-card">
           <div class="player-card-label">OK Computer — Álbum completo</div>
           <div class="player-cover" id="cover-rh-1" onclick="loadPlayer('cover-rh-1','frame-rh-1','https://open.spotify.com/embed/album/6dVIqQ8qmQ5GBnJ9shOYGE?utm_source=generator&theme=0')">
-            <img class="player-cover-art" src="https://i.scdn.co/image/ab67616d0000b2736b6a7e3b6d6b7b6b7b6b7b6b" alt="OK Computer" onerror="this.style.display='none'" />
+            <img class="player-cover-art" src="https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02c8b444df094279e70d0ed856" alt="OK Computer" width="90" height="90" loading="lazy" onerror="this.style.display='none'" />
             <p class="player-cover-title">OK Computer</p>
             <p class="player-cover-sub">Radiohead · 1997</p>
             <button class="play-btn">
@@ -369,7 +379,7 @@
         <div class="player-card">
           <div class="player-card-label">Kid A — Álbum completo</div>
           <div class="player-cover" id="cover-rh-2" onclick="loadPlayer('cover-rh-2','frame-rh-2','https://open.spotify.com/embed/album/6GjwtEZcfenmOf6l18N7T7?utm_source=generator&theme=0')">
-            <img class="player-cover-art" src="https://i.scdn.co/image/ab67616d0000b2730c9a2c2a6b2a6b2a6b2a6b2a" alt="Kid A" onerror="this.style.display='none'" />
+            <img class="player-cover-art" src="https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e026c7112082b63beefffe40151" alt="Kid A" width="90" height="90" loading="lazy" onerror="this.style.display='none'" />
             <p class="player-cover-title">Kid A</p>
             <p class="player-cover-sub">Radiohead · 2000</p>
             <button class="play-btn">

@@ -54,23 +54,15 @@
   );
 
   /* FADE UP + BARS */
-  new IntersectionObserver(entries => {
+  const fadeObserver = new IntersectionObserver(entries => {
     entries.forEach(e => {
       if (e.isIntersecting) {
         e.target.classList.add('visible');
         e.target.querySelectorAll('.learning-fill').forEach(b => b.style.width = b.dataset.w + '%');
       }
     });
-  }, { threshold: 0.1 }).observe && document.querySelectorAll('.fade-up').forEach(el =>
-    new IntersectionObserver(entries => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add('visible');
-          e.target.querySelectorAll('.learning-fill').forEach(b => b.style.width = b.dataset.w + '%');
-        }
-      });
-    }, { threshold: 0.1 }).observe(el)
-  );
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-up').forEach(el => fadeObserver.observe(el));
 
   /* PHOTO */
   document.getElementById('photoInput').addEventListener('change', e => {
